@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.25, 8.5" name="FitasiaData">
+  <DataContextMoniker Name="/FitasiaDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d029b7ed-cc52-4193-b504-c8dda0bc7ab3" absoluteBounds="3.625, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FitasiaDataDataContext/UserActivation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fba49d0-4798-4c15-80e4-72aa6d1f098d" absoluteBounds="3.6399999999999997, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b41c40e6-c6e7-4429-9f7f-7e854d604682" absoluteBounds="4.5, 2.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a49a9514-6a76-4cb0-ab12-0b16e434757e" absoluteBounds="4.515, 2.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9d5fc849-a463-4265-abe2-d48cfbe8f248" absoluteBounds="1, 3.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4720dffd-9c20-4661-a55c-e9d88174218f" absoluteBounds="1.0150000000000001, 3.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 3.82294840494792); (3 : 3.82294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Address/Address_Order" />
+      <nodes>
+        <classShapeMoniker Id="b41c40e6-c6e7-4429-9f7f-7e854d604682" />
+        <classShapeMoniker Id="9d5fc849-a463-4265-abe2-d48cfbe8f248" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="012ac5d4-eda3-438d-80f5-7c37b88c343d" absoluteBounds="4.375, 5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cd48fe6-e0a2-4b38-884e-d5f5ce2a8bbc" absoluteBounds="4.39, 5.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.375 : 5.79169890494792); (2.96875 : 5.79169890494792); (2.96875 : 5.27089680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Product/Product_Order" />
+      <nodes>
+        <classShapeMoniker Id="012ac5d4-eda3-438d-80f5-7c37b88c343d" />
+        <classShapeMoniker Id="9d5fc849-a463-4265-abe2-d48cfbe8f248" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3d298771-436a-4ce4-8015-73e91211d5af" absoluteBounds="0.875, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FitasiaDataDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b34d992-80ab-4075-8416-7fbf96bba8bc" absoluteBounds="0.89000000000000012, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 1.09699625651042); (3.625 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FitasiaDataDataContext/User/User_UserActivation" />
+      <nodes>
+        <classShapeMoniker Id="3d298771-436a-4ce4-8015-73e91211d5af" />
+        <classShapeMoniker Id="d029b7ed-cc52-4193-b504-c8dda0bc7ab3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 2.06574575651042); (6.09375 : 2.06574575651042); (6.09375 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FitasiaDataDataContext/User/User_Address" />
+      <nodes>
+        <classShapeMoniker Id="3d298771-436a-4ce4-8015-73e91211d5af" />
+        <classShapeMoniker Id="b41c40e6-c6e7-4429-9f7f-7e854d604682" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.9375 : 2.65549967447917); (1.9375 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FitasiaDataDataContext/User/User_Order" />
+      <nodes>
+        <classShapeMoniker Id="3d298771-436a-4ce4-8015-73e91211d5af" />
+        <classShapeMoniker Id="9d5fc849-a463-4265-abe2-d48cfbe8f248" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="96d215fe-7332-4a27-9ee7-e545ff85e49d" absoluteBounds="6.875, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Person" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49a7c914-0797-4478-81ea-9f0685c09434" absoluteBounds="6.8900000000000006, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e943544-d81a-4f60-98f8-1319691d1f80" absoluteBounds="13, 2.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Activity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a57fd94-6a47-4943-9d6d-e4ebce50b177" absoluteBounds="13.015, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab256356-6966-422d-a9ca-841d1a530541" absoluteBounds="13, 4.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Benefit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dceacd75-265f-4043-9132-58bd3694d35a" absoluteBounds="13.015, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" absoluteBounds="7.25, 3, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/FitasiaDataDataContext/Gym" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a6e830b-46f4-466f-868b-25fbd5e7c692" absoluteBounds="7.2650000000000006, 3.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 3.57294840494792); (7.25 : 3.57294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Address/Address_Gym" />
+      <nodes>
+        <classShapeMoniker Id="b41c40e6-c6e7-4429-9f7f-7e854d604682" />
+        <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5b8db757-c139-44e3-8b4a-96850a50c58e" absoluteBounds="10.25, 2.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FitasiaDataDataContext/GymActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d00d5656-1600-4607-b323-c5fab2e8e7f5" absoluteBounds="10.265, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13 : 3.22199625651042); (12.25 : 3.22199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Activity/Activity_GymActivity" />
+      <nodes>
+        <classShapeMoniker Id="1e943544-d81a-4f60-98f8-1319691d1f80" />
+        <classShapeMoniker Id="5b8db757-c139-44e3-8b4a-96850a50c58e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.25 : 3.40949625651042); (10.25 : 3.40949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Gym/Gym_GymActivity" />
+      <nodes>
+        <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
+        <classShapeMoniker Id="5b8db757-c139-44e3-8b4a-96850a50c58e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="98673c00-5ca5-44e7-ac46-aeccb760dea2" absoluteBounds="10.25, 4.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FitasiaDataDataContext/GymBenefit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eedefa16-273a-47c0-a4e7-3f77352b8155" absoluteBounds="10.265, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13 : 5.06814697265625); (12.25 : 5.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Benefit/Benefit_GymBenefit" />
+      <nodes>
+        <classShapeMoniker Id="ab256356-6966-422d-a9ca-841d1a530541" />
+        <classShapeMoniker Id="98673c00-5ca5-44e7-ac46-aeccb760dea2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.25 : 4.86140055338542); (10.25 : 4.86140055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Gym/Gym_GymBenefit" />
+      <nodes>
+        <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
+        <classShapeMoniker Id="98673c00-5ca5-44e7-ac46-aeccb760dea2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

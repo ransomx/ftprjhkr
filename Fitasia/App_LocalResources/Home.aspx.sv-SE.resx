@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtnLoginFb.Text" xml:space="preserve">
+    <value>Logga in Med Facebook</value>
+  </data>
+  <data name="BtnLoginGoogle.Text" xml:space="preserve">
+    <value>Logga in Med google</value>
+  </data>
+  <data name="BtnPurchase.Text" xml:space="preserve">
+    <value>Köpa</value>
+  </data>
+  <data name="BtnSignUp.Text" xml:space="preserve">
+    <value>Registrera dig</value>
+  </data>
+  <data name="BtnStuff.Text" xml:space="preserve">
+    <value>Gå till erbjudanden</value>
+  </data>
+  <data name="ComparePassword.ErrorMessage" xml:space="preserve">
+    <value>Lösenorden matchar inte</value>
+  </data>
+  <data name="LblAbout.Text" xml:space="preserve">
+    <value>Om oss</value>
+  </data>
+  <data name="LblAboutContent.Text" xml:space="preserve">
+    <value>Vilka andra gym säga om oss?</value>
+  </data>
+  <data name="LblCity.Text" xml:space="preserve">
+    <value>Lokalitet</value>
+  </data>
+  <data name="LblGoToOffer.Text" xml:space="preserve">
+    <value>Gå till erbjudanden</value>
+  </data>
+  <data name="LblHeader.Text" xml:space="preserve">
+    <value>Registrera dig och börja träna IDAG!</value>
+  </data>
+  <data name="LblHeaderBig.Text" xml:space="preserve">
+    <value>450 + idrottsanläggningar.</value>
+  </data>
+  <data name="LblHeaderMedium.Text" xml:space="preserve">
+    <value>Ett kort. EN medlemsavgiften.</value>
+  </data>
+  <data name="LblHeaderSmall.Text" xml:space="preserve">
+    <value>Enkel åtkomst till de bästa anläggningarna för sport och fritid i Sverige.</value>
+  </data>
+  <data name="LblLocator.Text" xml:space="preserve">
+    <value>Locator</value>
+  </data>
+  <data name="LblLocatorContent.Text" xml:space="preserve">
+    <value>Vår locator tjänar syftet att ta reda på de platser där gym och visning av kategorin gymnastiken.</value>
+  </data>
+  <data name="LblOffers.Text" xml:space="preserve">
+    <value>Erbjudanden</value>
+  </data>
+  <data name="LblOffersFoot.Text" xml:space="preserve">
+    <value>Dessa är våra grundläggande erbjudanden. Antal erbjudanden kan förändras i takt med priserna eftersom det kan finnas rabatter under viss säsong.</value>
+  </data>
+  <data name="LblSearch.Text" xml:space="preserve">
+    <value>Aktivitet</value>
+  </data>
+  <data name="LblVideo.Text" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="ListItemSelect.Text" xml:space="preserve">
+    <value>ALLA</value>
+  </data>
+  <data name="RegExpEmail.ErrorMessage" xml:space="preserve">
+    <value>Tillåten e-postformat : name@domain.xx</value>
+  </data>
+  <data name="RegExpName.ErrorMessage" xml:space="preserve">
+    <value>Endast bokstäver tillåts</value>
+  </data>
+  <data name="RegExpPass.ErrorMessage" xml:space="preserve">
+    <value>Lösenordet måste vara mellan 4 och 8 siffror lång och innefattar åtminstone en numerisk siffra</value>
+  </data>
+  <data name="RegExpSur.ErrorMessage" xml:space="preserve">
+    <value>Endast bokstäver tillåts</value>
+  </data>
+  <data name="RegValEmail.ErrorMessage" xml:space="preserve">
+    <value>Skriv in din mailadress</value>
+  </data>
+  <data name="ReqValName.ErrorMessage" xml:space="preserve">
+    <value>Ange ditt namn</value>
+  </data>
+  <data name="ReqValPass.ErrorMessage" xml:space="preserve">
+    <value>Ange ditt lösenord</value>
+  </data>
+  <data name="ReqValSur.ErrorMessage" xml:space="preserve">
+    <value>Ange ditt efternamn</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Genom priset på en medlemsavgift.</value>
+  </data>
+  <data name="TxtEmail.Placeholder" xml:space="preserve">
+    <value>E-POST</value>
+  </data>
+  <data name="TxtName.Placeholder" xml:space="preserve">
+    <value>NAMN</value>
+  </data>
+  <data name="TxtPwd.Placeholder" xml:space="preserve">
+    <value>LÖSENORD</value>
+  </data>
+  <data name="TxtPwda.Placeholder" xml:space="preserve">
+    <value>LÖSENORD IGEN</value>
+  </data>
+  <data name="TxtSearch.Placeholder" xml:space="preserve">
+    <value>Bodybuilding</value>
+  </data>
+  <data name="TxtSurname.Placeholder" xml:space="preserve">
+    <value>EFTERNAMN</value>
+  </data>
+</root>

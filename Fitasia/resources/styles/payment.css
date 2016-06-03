@@ -1,0 +1,43 @@
+﻿
+.payment, .productInfo{
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+hr{
+}
+
+.payment{
+    text-align: left;
+}
+
+.productInfo{
+    text-align: left;
+}
+
+.button{
+    width: 50%;
+}
+
+.checkbox{
+    text-align:left;
+    display:list-item;
+    list-style: none;
+}
+
+.checkBoxes{
+    margin: 0 auto;
+    width: 600px;
+}
+
+.payPal{
+    display: none;
+}
+
+.payCard{
+    
+}
+
+.payment img{
+    width: 300px;
+}

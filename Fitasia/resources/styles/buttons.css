@@ -1,0 +1,63 @@
+﻿.inputField{
+    width: 100%;
+    height: 100%;
+}
+
+.buttonSmall{
+    float: right;
+    width: 100px;
+}
+
+.input{
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.inputStretch{
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.buttonLink{
+    width: 200px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+.button, .buttonFb, .buttonG, .buttonLink{
+    width: 100%; 
+    min-height: 30px;
+    margin: 5px 0 5px 0;
+    border: none;
+    color: white;
+    background-color: rgba(230, 126, 36, 0.7);
+    transition: opacity 200ms;
+}
+
+.button:hover, .buttonLink:hover{
+    background-color: rgba(230, 126, 36, 1);
+}
+
+.buttonFb{
+    background-color: rgba(64, 112, 187, 0.7);
+}
+
+.buttonFb:hover{
+    background-color: rgba(64, 112, 187, 1);
+}
+
+.buttonG{
+    background-color: rgba(255, 126, 36, 0.7)
+}
+
+.buttonG:hover{
+    background-color: rgba(255, 126, 36, 1)
+}
+
+.mapcontrol{
+    display: inline-table;
+    padding: 10px 5px 10px 5px;
+    margin: 10px 5px 10px 5px;
+}

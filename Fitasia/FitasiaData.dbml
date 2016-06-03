@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FitasiaData" Class="FitasiaDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FitasiaData.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FitasiaDataConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.UserActivation" Member="UserActivations">
+    <Type Name="UserActivation">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActivationCode" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="User_UserActivation" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Address_Order" Member="Orders" ThisKey="Id" OtherKey="AddressId" Type="Order" />
+      <Association Name="Address_Gym" Member="Gyms" ThisKey="Id" OtherKey="AddressID" Type="Gym" />
+      <Association Name="User_Address" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Order]" Member="Orders">
+    <Type Name="Order">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="AddressId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Address_Order" Member="Address" ThisKey="AddressId" OtherKey="Id" Type="Address" IsForeignKey="true" />
+      <Association Name="Product_Order" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" />
+      <Association Name="User_Order" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Product_Order" Member="Orders" ThisKey="Id" OtherKey="ProductId" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(64) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="Salt" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="User_UserActivation" Member="UserActivation" ThisKey="Id" OtherKey="UserId" Type="UserActivation" Cardinality="One" />
+      <Association Name="User_Address" Member="Addresses" ThisKey="Id" OtherKey="UserId" Type="Address" />
+      <Association Name="User_Order" Member="Orders" ThisKey="Id" OtherKey="UserId" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Person" Member="Persons">
+    <Type Name="Person">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Profession" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Activity" Member="Activities">
+    <Type Name="Activity">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Activity_GymActivity" Member="GymActivities" ThisKey="Id" OtherKey="ActivityID" Type="GymActivity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Benefits" Member="Benefits">
+    <Type Name="Benefit">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Benefit_GymBenefit" Member="GymBenefits" ThisKey="Id" OtherKey="BenefitID" Type="GymBenefit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gym" Member="Gyms">
+    <Type Name="Gym">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LocLa" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LocLo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Gym_GymActivity" Member="GymActivities" ThisKey="Id" OtherKey="GymID" Type="GymActivity" />
+      <Association Name="Gym_GymBenefit" Member="GymBenefits" ThisKey="Id" OtherKey="GymID" Type="GymBenefit" />
+      <Association Name="Address_Gym" Member="Address" ThisKey="AddressID" OtherKey="Id" Type="Address" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GymActivity" Member="GymActivities">
+    <Type Name="GymActivity">
+      <Column Name="GymID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Activity_GymActivity" Member="Activity" ThisKey="ActivityID" OtherKey="Id" Type="Activity" IsForeignKey="true" />
+      <Association Name="Gym_GymActivity" Member="Gym" ThisKey="GymID" OtherKey="Id" Type="Gym" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GymBenefits" Member="GymBenefits">
+    <Type Name="GymBenefit">
+      <Column Name="GymID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BenefitID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Benefit_GymBenefit" Member="Benefit" ThisKey="BenefitID" OtherKey="Id" Type="Benefit" IsForeignKey="true" />
+      <Association Name="Gym_GymBenefit" Member="Gym" ThisKey="GymID" OtherKey="Id" Type="Gym" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

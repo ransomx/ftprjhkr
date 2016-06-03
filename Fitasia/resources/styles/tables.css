@@ -1,0 +1,80 @@
+﻿body {
+}
+
+.inputPopup{
+    display: none;
+    position:relative;
+    width: 100%;
+}
+
+/* Data tables */
+.datagrid, .datagridSelectable{
+    width: 80%;
+	min-width: 80%;
+}
+
+.datagridSelectable, .datagrid{
+    border: solid 2px black;
+}
+
+.header{
+    background-color: #646464;
+	font-family: Arial;
+	color: White;
+	border: none 0px transparent;
+	height: 25px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.rows
+{
+	background-color: #eef6f9;
+	font-family: Arial;
+	font-size: 14px;
+	color: #000;
+	min-height: 25px;
+	text-align: left;
+	border: none 0px transparent;
+}
+
+td
+{
+	padding: 5px;
+}
+th
+{
+	padding: 5px;
+}
+
+.datagrid a, .datagridSelectable a /** FOR THE PAGING ICONS  **/
+{
+	background-color: Transparent;
+	padding: 5px 5px 5px 5px;
+	color: orange;
+	text-decoration: none;
+	font-weight: bold;
+}
+.datagrid a:hover /** FOR THE PAGING ICONS  HOVER STYLES**/
+{
+	background-color: #000;
+	color: #fff;
+}
+.datagrid span /** FOR THE PAGING ICONS CURRENT PAGE INDICATOR **/
+{
+	background-color: #c9c9c9;
+	color: #000;
+	padding: 5px 5px 5px 5px;
+}
+
+.datagrid .pager
+{
+	background-color: #646464;
+	font-family: Arial;
+	color: White;
+	height: 30px;
+	text-align: left;
+}
+
+td{
+}
