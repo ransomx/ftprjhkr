@@ -31,7 +31,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="content">
+    <div class="content bottom">
         <h2>
             <asp:Label ID="LblSelected" meta:resourceKey="LblSelected" runat="server"></asp:Label></h2>
         <hr />

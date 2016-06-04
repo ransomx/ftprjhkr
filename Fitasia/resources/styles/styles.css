@@ -6,15 +6,9 @@
     width: 100%;
 }
 
-a {
-    text-decoration: none;
-}
-
 header {
     width: 100%;
     height: 50px;
-    background-color: #ffffff;
-    opacity: 0.4;
     text-align: right;
     position: fixed;
     top: 0;
@@ -26,18 +20,19 @@ header {
         height: auto;
     }
 
-    header a:visited {
-        color: black;
-    }
+a, header a:visited {
+    text-decoration: none;
+    color: orange;
+}
 
-li{
+li {
     list-style: none;
 }
 
 .logo {
     padding-left: 50px;
     float: left;
-    font-size: 40px;
+    font-size: 30px;
 }
 
     .logo img {
@@ -46,16 +41,15 @@ li{
 
     .logo a {
         text-decoration: none;
-        color: black;
     }
 
     .logo span {
         position: relative;
-        top: -10px;
+        top: -15px;
     }
 
 .menubar {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     position: absolute;
     right: 100px;
@@ -67,19 +61,17 @@ li{
     }
 
     .menubar a {
-        color: black;
         transition: color 0.3s ease;
     }
 
         .menubar a:hover {
             color: #ff0000;
-            text-shadow: -1px -1px 25px rgba(255, 153, 103, 1);
         }
 
 .dropdown {
     position: absolute;
     right: 40px;
-    top: 18px;
+    top: 13px;
     border: 1px solid black;
     color: Black;
 }
@@ -89,22 +81,23 @@ li{
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: rgba(1, 5, 3, 1);
     overflow: hidden;
 }
 
 video {
     width: 100%;
     z-index: -500;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .fullscreen-bg {
     min-width: 100%;
     height: 100vh;
-    background-color: rgba(255, 98, 44, 0.5);
+    background-color: rgba(255, 80, 44, 1);
     overflow: hidden;
     position: absolute;
+    -webkit-filter: contrast(200%); /* Chrome, Safari, Opera */
+    filter: contrast(200%);
 }
 
 .overlay {
@@ -123,17 +116,20 @@ video {
     min-height: 300px;
     z-index: -200;
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px 10px 20px 10px;
     position: absolute;
     top: 0;
 }
 
 .info {
-    width: 200px;
-    display: inline-block;
+    width: auto;
+    max-width: 300px;
+    min-width: 200px;
+    display: inline-table;
     text-align: center;
     color: #ff6a00;
+    text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
 }
 
 .register span {
@@ -366,7 +362,6 @@ aside div {
     height: 30px;
     background-color: silver;
     text-align: center;
-    font-family: 'Gill Sans MT';
     border-radius: 0px 0px 10px 10px;
     margin: 0 auto;
     line-height: 30px;
@@ -493,9 +488,10 @@ aside div:hover {
     width: 100%;
     min-height: 30px;
     margin: 5px 0 5px 0;
+    padding:10px 0 10px 0;
     border: none;
     color: white;
-    background-color: rgba(230, 126, 36, 0.7);
+    background-color: rgba(230, 126, 36, 0.8);
     transition: opacity 200ms;
 }
 
@@ -504,7 +500,7 @@ aside div:hover {
     }
 
 .buttonFb {
-    background-color: rgba(64, 112, 187, 0.7);
+    background-color: rgba(64, 112, 187, 0.8);
 }
 
     .buttonFb:hover {
@@ -512,7 +508,7 @@ aside div:hover {
     }
 
 .buttonG {
-    background-color: rgba(255, 126, 36, 0.7);
+    background-color: rgba(255, 126, 36, 0.8);
 }
 
     .buttonG:hover {

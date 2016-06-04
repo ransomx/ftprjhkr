@@ -1,15 +1,18 @@
-﻿function ChangeMenuOpacity(){
+﻿function ChangeMenuOpacity() {
     $(window).scroll(function () {
         if ($(window).scrollTop() > 50) {
-            $('#header').css('background', 'rgb(255, 255, 255)').stop().animate({ "opacity": "1" }, 200)
+            $('#header').animate({'background-color': 'rgba(0, 0, 0, 0.3)'});
+            $('.a').animate({'color': 'white' });
         }
-        else if ($(window).scrollTop() < 50) {
-            $('#header').css('background', 'rgb(255, 255, 255)').stop().animate({ "opacity": ".5" }, 200)
+        else {
+            $alert("asdasd");
+            $('#header').animate({ 'background-color': 'rgba(0, 0, 0, 0.0)' });
+            $('.a').animate({ 'color': 'orange' });
         }
     });
 }
 
-function GoToOffer(){
+function GoToOffer() {
     $("#gotoOffer").click(function () {
         $('html, body').animate({
             scrollTop: $("#offers").offset().top

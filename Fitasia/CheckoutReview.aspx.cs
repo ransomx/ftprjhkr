@@ -30,10 +30,15 @@ namespace Fitasia
 
                     using (FitasiaDataDataContext db = new FitasiaDataDataContext())
                     {
+                       try { 
                         myOrder.Date = Convert.ToDateTime(decoder["TIMESTAMP"].ToString());
                         myOrder.UserId = Int32.Parse(Session["LoggedId"].ToString());
                         myOrder.ProductId = Int32.Parse(Session["product_id"].ToString());
-
+                        }
+                        catch(Exception)
+                        {
+                            Response.Redirect("CheckoutError.aspx?" + "Missing login credentials / User not logged in");
+                        }
                         //test existing address
                         toSend = (from ad in db.Addresses
                                 where ad.City == decoder["SHIPTOCITY"].ToString()

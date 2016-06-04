@@ -51,6 +51,7 @@
                             <span>
                                 <asp:Label ID="LblHeader" runat="server" meta:resourceKey="LblHeader" />
                             </span>
+                            <p></p>
                             <asp:Table ID="TableReg" runat="server">
                                 <asp:TableRow>
                                     <asp:TableCell>
