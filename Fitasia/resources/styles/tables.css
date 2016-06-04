@@ -9,7 +9,7 @@
 
 /* Data tables */
 .datagrid, .datagridSelectable{
-    width: 80%;
+    width: 100%;
 	min-width: 80%;
 }
 

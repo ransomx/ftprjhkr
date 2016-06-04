@@ -1,9 +1,9 @@
 ﻿
 .data{
     padding: 10px;
-    width: 70%;
+    width: 33%;
     text-align: center;
-    display: block;
+    display: inline-table;
 }
 
 .payHistory{
@@ -11,6 +11,3 @@
     display: block;
 }
 
-.insertSection .button{
-    display: inline-block;
-}

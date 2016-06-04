@@ -1,5 +1,5 @@
 ﻿using Fitasia.logic;
-using Fitasia.Source;
+using Fitasia.security;
 using Subgurim.Controles;
 using Subgurim.Controles.GoogleChartIconMaker;
 using System;
@@ -52,10 +52,12 @@ namespace Fitasia
             List<string> tags = ((List<string>)ViewState["Activities"]);
             List<Gym> gyms = searchByCriterion(tags);
             
+            /* WIP - Will be used for benefits
             foreach(Gym gym in gyms)
             {
                 GymActivity ga;
             }
+            */
 
             PinIcon p;
             GMarker gm;

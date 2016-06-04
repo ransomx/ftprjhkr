@@ -20,14 +20,19 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="content">
+    <div class="content bottom">
         <h2>
             <asp:Label ID="LblWelcome" meta:resourceKey="LblWelcome" runat="server" />
         </h2>
+        <p>
+            This is the user page, here you can add addresses and view your purchase history.
+        </p>
         <section class="data">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" EnablePartialRendering="true">
                 <ContentTemplate>
                     <h3>
+
+
                         <asp:Label ID="LblAddresses" meta:resourceKey="LblAddresses" runat="server"></asp:Label></h3>
                     <asp:LinqDataSource ID="AddressData"
                         EnableDelete="True"
@@ -44,7 +49,7 @@
                     </asp:LinqDataSource>
                     <asp:GridView ID="GridView1" runat="server" DataSourceID="AddressData"
                         AutoGenerateColumns="False" CssClass="datagridSelectable" DataKeyNames="Id"
-                        PagerStyle-CssClass="pager" HeaderStyle-CssClass="header" RowStyle-CssClass="rows"
+                        PagerStyle-CssClass="pager" PagerSettings-Mode="Numeric" HeaderStyle-CssClass="header" RowStyle-CssClass="rows"
                         AllowPaging="True">
                         <Columns>
                             <asp:BoundField DataField="Street" meta:resourceKey="Street" SortExpression="Street" />
@@ -53,8 +58,8 @@
                             <asp:CommandField InsertText="" meta:resourceKey="Action" NewText="" SelectText="" ShowDeleteButton="True" ShowEditButton="True" />
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="BtnAddAddress" runat="server" meta:resourceKey="BtnAddAddress" CssClass="button" OnClientClick="return false;" />
-                    <div id="insertSection" class="inputPopup">
+                    <asp:Button ID="BtnAddAddress" runat="server" meta:resourceKey="BtnAddAddress" CssClass="button horizontal" OnClientClick="return false;" />
+                    <div id="insertSection" class="inputPopup horizontal">
                         <asp:Label ID="LblNewAddress" meta:resourceKey="LblNewAddress" runat="server"></asp:Label>
                         <asp:TextBox ID="TxtStreet" meta:resourceKey="TxtStreet" runat="server"></asp:TextBox>
                         <asp:TextBox ID="TxtCity" meta:resourceKey="TxtCity" runat="server"></asp:TextBox>
@@ -68,7 +73,7 @@
             </asp:UpdatePanel>
         </section>
 
-        <section class="payHistory">
+        <section class="data">
             <h3>
                 <asp:Label ID="LblPayhistory" meta:resourceKey="LblPayhistory" runat="server"></asp:Label></h3>
             <asp:LinqDataSource ID="OrderData" runat="server" ContextTypeName="Fitasia.FitasiaDataDataContext" EntityTypeName="" OrderBy="Date" TableName="Orders" Where="UserId == @UserId">

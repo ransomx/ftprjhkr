@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace Fitasia.Source
+namespace Fitasia.security
 {
     public class MyCrypto
     {

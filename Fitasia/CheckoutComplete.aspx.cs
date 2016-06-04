@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fitasia.logic;
+using System;
 using System.Linq;
 
 

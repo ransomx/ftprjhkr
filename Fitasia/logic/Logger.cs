@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.IO;
 
-namespace Fitasia
+namespace Fitasia.logic
 {
     // Create our own utility for exceptions
     public sealed class ExceptionUtility

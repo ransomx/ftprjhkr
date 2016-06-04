@@ -7,6 +7,8 @@
         <h1>Checkout Cancelled</h1>
         <p></p>
         <h2>Your purchase has been cancelled.</h2>
+        <p></p>
+        <a href="Home.aspx">Return to home page</a>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
