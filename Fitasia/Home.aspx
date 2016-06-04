@@ -3,6 +3,9 @@
 <%@ Register Assembly="GMaps" Namespace="Subgurim.Controles" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="resources/styles/tables.css" type="text/css" />
+    <link rel="stylesheet" href="resources/styles/contact.css" type="text/css" />
+    
     <script type="text/javascript">
         var searchOpen = false;
         function hideSearch() {
@@ -21,6 +24,13 @@
                 hideSearch();
             }
         }
+
+        function HideLabel() {
+            var seconds = 5;
+            setTimeout(function () {
+                $("#<%=LblMessageC.ClientID%>").fadeOut(500);
+            }, seconds * 1000);
+        };
     </script>
 </asp:Content>
 
@@ -222,7 +232,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="ContentPlaceHolder6" runat="server">
     <!-- ABOUT US CONTENT  -->
-    <div class="content bottom">
+    <div class="content">
         <h1>
             <asp:Label ID="LblAbout" meta:resourceKey="LblAbout" runat="server"></asp:Label></h1>
         <p>
@@ -239,5 +249,56 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+    </div>
+
+    <div class="content bottom">
+        <h2>
+            <asp:Label ID="LblConnectC" meta:resourceKey="LblConnectC" runat="server" Text="Label"></asp:Label></h2>
+        <p>
+            <asp:Label ID="LblHeaderContentC" meta:resourceKey="LblHeaderContentC" runat="server" Text="Label"></asp:Label>
+        </p>
+
+        <section class="contact">
+            <h4>
+                <asp:Label ID="LblSendMessageC" meta:resourceKey="LblSendMessageC" runat="server" Text="Label"></asp:Label></h4>
+            <asp:Table ID="Table1" runat="server" Width="400">
+                <asp:TableRow>
+                    <asp:TableCell ColumnSpan="1">
+                        <asp:TextBox ID="TxtNameC" CssClass="input" meta:resourceKey="TxtNameC" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator meta:resourceKey="ReqValNameC" ID="ReqValNameC" ValidationGroup="contact" ControlToValidate="TxtNameC" Display="None" runat="server"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                    <asp:TableCell ColumnSpan="1">
+                        <asp:TextBox ID="TxtEmailC" meta:resourceKey="TxtEmailC" CssClass="input" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator meta:resourceKey="ReqValEmailC" ID="ReqValEmailC" ValidationGroup="contact" ControlToValidate="TxtEmailC" Display="None" runat="server"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:TextBox ID="TxtTopicC" meta:resourceKey="TxtTopicC" CssClass="inputStretch" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:TextBox ID="TxtInputC" meta:resourceKey="TxtInputC" Rows="8" TextMode="MultiLine" Wrap="true" CssClass="inputField" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator meta:resourceKey="ReqValTextC" ID="ReqValTextC" runat="server" ValidationGroup="contact" Display="None" ControlToValidate="TxtInputC"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="BtnSendC" meta:resourceKey="BtnSendC" runat="server" ValidationGroup="contact" CssClass="button" Text="" OnClick="BtnSend_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <asp:ValidationSummary ID="ValidationSummaryC" CssClass="validator" ValidationGroup="contact" runat="server" />
+        </section>
+        <section class="sideSocials">
+            <h4><asp:Label ID="LblSocC" meta:resourceKey="LblSoc1C" runat="server"></asp:Label></h4>
+            <p><asp:Label ID="LblFbC" meta:resourceKey="LblFbC" runat="server"></asp:Label> </p>
+            <p><asp:Label ID="LblTwitterC" meta:resourceKey="LblTwitterC" runat="server"></asp:Label></p>
+            <p><asp:Label ID="LblGoogleC" meta:resourceKey="LblGoogleC" runat="server"></asp:Label></p>
+        </section>
+        <asp:Label ID="LblMessageC" meta:resourceKey="LblMessageC" CssClass="timeoutMessage" runat="server" Visible="false"></asp:Label>
     </div>
 </asp:Content>

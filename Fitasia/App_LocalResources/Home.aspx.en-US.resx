@@ -126,6 +126,9 @@
   <data name="BtnPurchase.Text" xml:space="preserve">
     <value>Buy</value>
   </data>
+  <data name="BtnSendC.Text" xml:space="preserve">
+    <value>Send</value>
+  </data>
   <data name="BtnSignUp.Text" xml:space="preserve">
     <value>Sign Up</value>
   </data>
@@ -144,6 +147,15 @@
   <data name="LblCity.Text" xml:space="preserve">
     <value>Area</value>
   </data>
+  <data name="LblConnectC.Text" xml:space="preserve">
+    <value>Connect with us!</value>
+  </data>
+  <data name="LblFbC.Text" xml:space="preserve">
+    <value>Facebook: https://www.facebook.com/</value>
+  </data>
+  <data name="LblGoogleC.Text" xml:space="preserve">
+    <value>Google+: fitasia@gmail.com</value>
+  </data>
   <data name="LblGoToOffer.Text" xml:space="preserve">
     <value>Go To Offers</value>
   </data>
@@ -152,6 +164,9 @@
   </data>
   <data name="LblHeaderBig.Text" xml:space="preserve">
     <value>450+ SPORTS FACILITIES.</value>
+  </data>
+  <data name="LblHeaderContentC.Text" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique velit ac sodales accumsan. Suspendisse et felis varius, efficitur enim eget, lobortis massa. Duis scelerisque, velit quis auctor vehicula, lacus velit tempor metus, non convallis turpis neque vitae ligula. Maecenas pretium tortor a justo tempus auctor. Praesent scelerisque arcu ut fringilla luctus.</value>
   </data>
   <data name="LblHeaderMedium.Text" xml:space="preserve">
     <value>ONE CARD. ONE MEMBERSHIP FEE.</value>
@@ -166,6 +181,10 @@
   <data name="LblLocatorContent.Text" xml:space="preserve">
     <value>Our locator serves the purpose of finding out the locations of gyms and displaying the gym class category.</value>
   </data>
+  <data name="LblMessageC.Text" xml:space="preserve">
+    <value />
+    <comment>Dynamic content controlled from code-behind</comment>
+  </data>
   <data name="LblOffers.Text" xml:space="preserve">
     <value>Offers</value>
   </data>
@@ -174,6 +193,15 @@
   </data>
   <data name="LblSearch.Text" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="LblSendMessageC.Text" xml:space="preserve">
+    <value>Send us a message</value>
+  </data>
+  <data name="LblSocC.Text" xml:space="preserve">
+    <value>You can find us at</value>
+  </data>
+  <data name="LblTwitterC.Text" xml:space="preserve">
+    <value>Twitter: twitter.dasd@dasd</value>
   </data>
   <data name="LblVideo.Text" xml:space="preserve">
     <value>Video</value>
@@ -196,8 +224,14 @@
   <data name="RegValEmail.ErrorMessage" xml:space="preserve">
     <value>Enter your email address</value>
   </data>
+  <data name="ReqValEmailC.ErrorMessage" xml:space="preserve">
+    <value>Specity an email</value>
+  </data>
   <data name="ReqValName.ErrorMessage" xml:space="preserve">
     <value>Enter your name</value>
+  </data>
+  <data name="ReqValNameC.ErrorMessage" xml:space="preserve">
+    <value>Specify a name</value>
   </data>
   <data name="ReqValPass.ErrorMessage" xml:space="preserve">
     <value>Enter your password</value>
@@ -205,14 +239,26 @@
   <data name="ReqValSur.ErrorMessage" xml:space="preserve">
     <value>Enter your surname</value>
   </data>
+  <data name="ReqValTextC.ErrorMessage" xml:space="preserve">
+    <value>Cannot send an empty message</value>
+  </data>
   <data name="TxtActivity.Placeholder" xml:space="preserve">
     <value>Bodybuilding</value>
   </data>
   <data name="TxtEmail.Placeholder" xml:space="preserve">
     <value>EMAIL</value>
   </data>
+  <data name="TxtEmailC.placeholder" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="TxtInputC.placeholder" xml:space="preserve">
+    <value>Content</value>
+  </data>
   <data name="TxtName.Placeholder" xml:space="preserve">
     <value>NAME</value>
+  </data>
+  <data name="TxtNameC.placeholder" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TxtPwd.Placeholder" xml:space="preserve">
     <value>PASSWORD</value>
@@ -225,5 +271,8 @@
   </data>
   <data name="TxtSurname.Placeholder" xml:space="preserve">
     <value>SURNAME</value>
+  </data>
+  <data name="TxtTopicC.placeholder" xml:space="preserve">
+    <value>Topic</value>
   </data>
 </root>

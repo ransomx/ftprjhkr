@@ -34,7 +34,7 @@ namespace Fitasia
             {
                 MenuItem LoggedAs = new MenuItem();
                 LoggedAs.ImageUrl = "https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_settings_48px-128.png";
-                LoggedAs.Text = ((User)Session["LoggedUser"]).Name;
+                LoggedAs.Text = ((User)Session["LoggedUser"]).Email;
                 if (((User)Session["LoggedUser"]).Role == "admin")
                 {
                     LoggedAs.NavigateUrl = "~/AdminPage.aspx";

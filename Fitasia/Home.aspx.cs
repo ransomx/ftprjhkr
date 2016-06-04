@@ -25,6 +25,13 @@ namespace Fitasia
                 LoadGMap();
                 LoadBestOffers();
             }
+
+            User u = (User)Session["LoggedUser"];
+            if (u != null)
+            {
+                TxtName.Text = u.Name;
+                TxtEmail.Text = u.Email;
+            }
         }
 
         /* Loads 3 best offers into a listView */
@@ -51,13 +58,21 @@ namespace Fitasia
 
             List<string> tags = ((List<string>)ViewState["Activities"]);
             List<Gym> gyms = searchByCriterion(tags);
-            
+
             /* WIP - Will be used for benefits
             foreach(Gym gym in gyms)
             {
                 GymActivity ga;
             }
             */
+
+            GControl control = new GControl(GControl.preBuilt.LargeMapControl);
+            GControl control2 = new GControl(GControl.preBuilt.MenuMapTypeControl, new GControlPosition(GControlPosition.position.Top_Right));
+
+            GMap1.Add(control);
+            GMap1.Add(control2);
+
+            GMap1.Add(new GControl(GControl.preBuilt.GOverviewMapControl, new GControlPosition(GControlPosition.position.Bottom_Left)));
 
             PinIcon p;
             GMarker gm;
@@ -71,7 +86,7 @@ namespace Fitasia
                 GMap1.Add(win);
             }
         }
-        
+
         /* Returns a list of offers based on search criteria */
         protected List<Gym> searchByCriterion(List<string> tags)
         {
@@ -92,14 +107,14 @@ namespace Fitasia
                  */
 
                 /* Will match containing at least one tag */
-                List<Gym> gyms= (from gym in db.Gyms
-                        join ga in db.GymActivities on gym.Id equals ga.GymID
-                        join act in db.Activities on ga.GymID equals act.Id
-                        //search for activities
-                        //where tags.Contains(act.Name)
-                        where gym.Address.City.Contains(TxtArea.Text)
-                        && gym.Name.Contains(TxtSearch.Text)
-                       select gym).Distinct().ToList();
+                List<Gym> gyms = (from gym in db.Gyms
+                                  join ga in db.GymActivities on gym.Id equals ga.GymID
+                                  join act in db.Activities on ga.GymID equals act.Id
+                                  //search for activities
+                                  //where tags.Contains(act.Name)
+                                  where gym.Address.City.Contains(TxtArea.Text)
+                                  && gym.Name.Contains(TxtSearch.Text)
+                                  select gym).Distinct().ToList();
                 GymRepeater.DataSource = gyms;
                 GymRepeater.DataBind();
                 return gyms;
@@ -223,5 +238,51 @@ namespace Fitasia
             ActivityList.DataSource = list;
             ActivityList.DataBind();
         }
+
+        /* Process fields and request email sending */
+        protected void BtnSend_Click(object sender, EventArgs e)
+        {
+            string email = TxtEmailC.Text.Trim();
+            string name = TxtNameC.Text.Trim();
+            string topic = TxtTopicC.Text;
+            string text = TxtInputC.Text;
+
+            SendContactEmail(email, name, topic, text);
+            clearFields();
+            LblMessageC.Text = "A message was sent, thank you for your response";
+
+            LblMessageC.Visible = true;
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        }
+
+        /* Send contact email */
+        protected void SendContactEmail(String email, String name, String topic, String text)
+        {
+            using (MailMessage mm = new MailMessage("Practicaltester@gmail.com", "Fitasiaserviceteam@gmail.com"))
+            {
+                mm.Subject = "Account Activation";
+                string body = "Message from " + name + ",";
+                body += text;
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true; //email: fitasiaserviceteam@gmail.com - 123456789abcdE
+                NetworkCredential NetworkCred = new NetworkCredential("Practicaltester@gmail.com", "826451379");
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+            }
+        }
+
+        /* Clears fields for contact list*/
+        protected void clearFields()
+        {
+            TxtInputC.Text = "";
+            TxtTopicC.Text = "";
+        }
     }
+
+
 }

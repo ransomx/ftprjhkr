@@ -146,7 +146,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="ActivationPage.aspx" />
     <Content Include="AdminPage.aspx" />
     <Content Include="App_Data\FitasiaData.mdf" />
@@ -157,7 +156,6 @@
     <Content Include="CheckoutComplete.aspx" />
     <Content Include="CheckoutError.aspx" />
     <Content Include="CheckoutStart.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="CheckoutCancel.aspx" />
     <Content Include="Global.asax" />
     <Content Include="resources\images\gym.jpg" />
@@ -282,13 +280,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ActivationPage.aspx.cs">
       <DependentUpon>ActivationPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -330,13 +321,6 @@
     </Compile>
     <Compile Include="CheckoutStart.aspx.designer.cs">
       <DependentUpon>CheckoutStart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="logic\Logger.cs" />
     <Compile Include="logic\PayPalFunctions.cs" />

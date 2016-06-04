@@ -126,6 +126,9 @@
   <data name="BtnPurchase.Text" xml:space="preserve">
     <value>Köpa</value>
   </data>
+  <data name="BtnSendC.Text" xml:space="preserve">
+    <value>Skicka</value>
+  </data>
   <data name="BtnSignUp.Text" xml:space="preserve">
     <value>Registrera dig</value>
   </data>
@@ -144,6 +147,15 @@
   <data name="LblCity.Text" xml:space="preserve">
     <value>Lokalitet</value>
   </data>
+  <data name="LblConnectC.Text" xml:space="preserve">
+    <value>Kontakt med oss!</value>
+  </data>
+  <data name="LblFbC.Text" xml:space="preserve">
+    <value>Facebook: https://www.facebook.com/</value>
+  </data>
+  <data name="LblGoogleC.Text" xml:space="preserve">
+    <value>Google+: fitasia@gmail.com</value>
+  </data>
   <data name="LblGoToOffer.Text" xml:space="preserve">
     <value>Gå till erbjudanden</value>
   </data>
@@ -152,6 +164,9 @@
   </data>
   <data name="LblHeaderBig.Text" xml:space="preserve">
     <value>450 + idrottsanläggningar.</value>
+  </data>
+  <data name="LblHeaderContentC.Text" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique velit ac sodales accumsan. Suspendisse et felis varius, efficitur enim eget, lobortis massa. Duis scelerisque, velit quis auctor vehicula, lacus velit tempor metus, non convallis turpis neque vitae ligula. Maecenas pretium tortor a justo tempus auctor. Praesent scelerisque arcu ut fringilla luctus.</value>
   </data>
   <data name="LblHeaderMedium.Text" xml:space="preserve">
     <value>Ett kort. EN medlemsavgiften.</value>
@@ -165,6 +180,10 @@
   <data name="LblLocatorContent.Text" xml:space="preserve">
     <value>Vår locator tjänar syftet att ta reda på de platser där gym och visning av kategorin gymnastiken.</value>
   </data>
+  <data name="LblMessageC.Text" xml:space="preserve">
+    <value />
+    <comment>Dynamic content controlled from code-behind</comment>
+  </data>
   <data name="LblOffers.Text" xml:space="preserve">
     <value>Erbjudanden</value>
   </data>
@@ -173,6 +192,15 @@
   </data>
   <data name="LblSearch.Text" xml:space="preserve">
     <value>Aktivitet</value>
+  </data>
+  <data name="LblSendMessageC.Text" xml:space="preserve">
+    <value>Skicka oss ett meddelande</value>
+  </data>
+  <data name="LblSocC.Text" xml:space="preserve">
+    <value>Du hittar oss på</value>
+  </data>
+  <data name="LblTwitterC.Text" xml:space="preserve">
+    <value>Twitter: twitter.dasd@dasd</value>
   </data>
   <data name="LblVideo.Text" xml:space="preserve">
     <value>Video</value>
@@ -195,8 +223,14 @@
   <data name="RegValEmail.ErrorMessage" xml:space="preserve">
     <value>Skriv in din mailadress</value>
   </data>
+  <data name="ReqValEmailC.ErrorMessage" xml:space="preserve">
+    <value>Specity ett e-postmeddelande</value>
+  </data>
   <data name="ReqValName.ErrorMessage" xml:space="preserve">
     <value>Ange ditt namn</value>
+  </data>
+  <data name="ReqValNameC.ErrorMessage1" xml:space="preserve">
+    <value>Ange ett namn</value>
   </data>
   <data name="ReqValPass.ErrorMessage" xml:space="preserve">
     <value>Ange ditt lösenord</value>
@@ -204,14 +238,26 @@
   <data name="ReqValSur.ErrorMessage" xml:space="preserve">
     <value>Ange ditt efternamn</value>
   </data>
+  <data name="ReqValTextC.ErrorMessage" xml:space="preserve">
+    <value>Det går inte att skicka ett tomt meddelande</value>
+  </data>
   <data name="String" xml:space="preserve">
     <value>Genom priset på en medlemsavgift.</value>
   </data>
   <data name="TxtEmail.Placeholder" xml:space="preserve">
     <value>E-POST</value>
   </data>
+  <data name="TxtEmailC.placeholder1" xml:space="preserve">
+    <value>E-Post</value>
+  </data>
+  <data name="TxtInputC.placeholder" xml:space="preserve">
+    <value>Innehåll</value>
+  </data>
   <data name="TxtName.Placeholder" xml:space="preserve">
     <value>NAMN</value>
+  </data>
+  <data name="TxtNameC.placeholder1" xml:space="preserve">
+    <value>Namn</value>
   </data>
   <data name="TxtPwd.Placeholder" xml:space="preserve">
     <value>LÖSENORD</value>
@@ -224,5 +270,8 @@
   </data>
   <data name="TxtSurname.Placeholder" xml:space="preserve">
     <value>EFTERNAMN</value>
+  </data>
+  <data name="TxtTopicC.placeholder" xml:space="preserve">
+    <value>Ämne</value>
   </data>
 </root>

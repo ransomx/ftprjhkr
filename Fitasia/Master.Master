@@ -33,8 +33,6 @@
                         <asp:Menu ID="Menubar" runat="server" CssClass="menubar" Orientation="Horizontal" RenderingMode="List" StaticSubMenuIndent="16px" OnMenuItemClick="Menubar_MenuItemClick">
                             <Items>
                                 <asp:MenuItem Selectable="True" NavigateUrl="~/Home.aspx" Text="Home" meta:resourceKey="Home" />
-                                <asp:MenuItem Selectable="True" NavigateUrl="~/About.aspx" Text="About us" meta:resourceKey="About" />
-                                <asp:MenuItem Selectable="True" NavigateUrl="~/Contact.aspx" Text="Contact" meta:resourceKey="Contact" />
                             </Items>
                         </asp:Menu>
                     </ContentTemplate>
