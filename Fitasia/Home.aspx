@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="resources/styles/tables.css" type="text/css" />
     <link rel="stylesheet" href="resources/styles/contact.css" type="text/css" />
-    
+
     <script type="text/javascript">
         var searchOpen = false;
         function hideSearch() {
@@ -124,9 +124,9 @@
             <div class="mapcontrols center">
                 <asp:TextBox ID="TxtArea" meta:resourceKey="TxtArea" placeholder="Area" runat="server" CssClass="mapcontrol" OnTextChanged="TxtSearch_TextChanged" AutoPostBack="true" />
                 <asp:TextBox ID="TxtSearch" meta:resourceKey="TxtSearch" runat="server" CssClass="mapcontrol" OnTextChanged="TxtSearch_TextChanged" AutoPostBack="true" />
-                
+
                 <!-- WIP -->
-                <asp:TextBox ID="TxtActivity" meta:resourceKey="TxtActivity" runat="server" ValidationGroup="mapcontrol" CssClass="mapcontrol" AutoPostBack="true" /> 
+                <asp:TextBox ID="TxtActivity" meta:resourceKey="TxtActivity" runat="server" ValidationGroup="mapcontrol" CssClass="mapcontrol" AutoPostBack="true" />
                 <asp:RequiredFieldValidator ID="ReqValActivity" runat="server" ControlToValidate="TxtActivity" ValidationGroup="mapcontrol" Display="None" ErrorMessage="You need to choose activity."></asp:RequiredFieldValidator>
                 <asp:ImageButton ID="BtnAdd" runat="server" CssClass="addIcon smooth-transform" ValidationGroup="mapcontrol" OnClick="BtnAdd_Click" ImageUrl="http://www.free-icons-download.net/images/plus-sign-icon-1945.png" />
                 <asp:ValidationSummary ID="MapControlValidationSummary" CssClass="validator" ValidationGroup="mapcontrol" runat="server" />
@@ -164,10 +164,11 @@
                                     <h4>Save 50% </h4>
                                 </div>
                                 <ul>
-                                    <asp:Repeater ID="BenefitRepeater" runat="server">
+                                    <asp:Repeater ID="BenefitRepeater" runat="server" DataSource='<%# Eval("GymBenefits") %>'>
                                         <ItemTemplate>
-                                            <li>
-                                                <img src="<%# Eval("Image") %>" alt="<%# Eval("Name") %>" />
+                                            <li class="benefit horizontal">
+                                                <img src='<%# DataBinder.Eval(Container.DataItem, "Benefit.Image")%>'
+                                                    alt='<%# DataBinder.Eval(Container.DataItem, "Benefit.Name")%>' />
                                             </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -294,10 +295,15 @@
             <asp:ValidationSummary ID="ValidationSummaryC" CssClass="validator" ValidationGroup="contact" runat="server" />
         </section>
         <section class="sideSocials">
-            <h4><asp:Label ID="LblSocC" meta:resourceKey="LblSoc1C" runat="server"></asp:Label></h4>
-            <p><asp:Label ID="LblFbC" meta:resourceKey="LblFbC" runat="server"></asp:Label> </p>
-            <p><asp:Label ID="LblTwitterC" meta:resourceKey="LblTwitterC" runat="server"></asp:Label></p>
-            <p><asp:Label ID="LblGoogleC" meta:resourceKey="LblGoogleC" runat="server"></asp:Label></p>
+            <h4>
+                <asp:Label ID="LblSocC" meta:resourceKey="LblSoc1C" runat="server"></asp:Label></h4>
+            <p>
+                <asp:Label ID="LblFbC" meta:resourceKey="LblFbC" runat="server"></asp:Label>
+            </p>
+            <p>
+                <asp:Label ID="LblTwitterC" meta:resourceKey="LblTwitterC" runat="server"></asp:Label></p>
+            <p>
+                <asp:Label ID="LblGoogleC" meta:resourceKey="LblGoogleC" runat="server"></asp:Label></p>
         </section>
         <asp:Label ID="LblMessageC" meta:resourceKey="LblMessageC" CssClass="timeoutMessage" runat="server" Visible="false"></asp:Label>
     </div>

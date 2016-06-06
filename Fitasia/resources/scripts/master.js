@@ -1,17 +1,4 @@
-﻿function ChangeMenuOpacity() {
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 50) {
-            $('#header').animate({'background-color': 'rgba(0, 0, 0, 0.3)'});
-            $('.a').animate({'color': 'white' });
-        }
-        else {
-            $alert("asdasd");
-            $('#header').animate({ 'background-color': 'rgba(0, 0, 0, 0.0)' });
-            $('.a').animate({ 'color': 'orange' });
-        }
-    });
-}
-
+﻿
 function GoToOffer() {
     $("#gotoOffer").click(function () {
         $('html, body').animate({
@@ -34,7 +21,6 @@ function MenuClick() {
 }
 
 function IniUpdate() {
-    ChangeMenuOpacity();
     GoToOffer();
     MenuClick();
 };
@@ -57,5 +43,14 @@ function hideSearch() {
         $("#toggleButton").text("HIDE");
     }
 }
+
+$(window).bind('scroll', function () {
+    if ($(window).scrollTop() > 100) {
+        $('#header').animate({ 'background-color': 'rgba(0, 0, 0, 0.3)' });
+    }
+    else {
+        $('#header').animate({ 'background-color': 'rgba(0, 0, 0, 0.0)' });
+    }
+});
 
 

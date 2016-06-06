@@ -98,44 +98,44 @@
         <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
       </nodes>
     </associationConnector>
-    <classShape Id="5b8db757-c139-44e3-8b4a-96850a50c58e" absoluteBounds="10.25, 2.625, 2, 1.1939925130208333">
-      <DataClassMoniker Name="/FitasiaDataDataContext/GymActivity" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d00d5656-1600-4607-b323-c5fab2e8e7f5" absoluteBounds="10.265, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(13 : 3.22199625651042); (12.25 : 3.22199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/FitasiaDataDataContext/Activity/Activity_GymActivity" />
-      <nodes>
-        <classShapeMoniker Id="1e943544-d81a-4f60-98f8-1319691d1f80" />
-        <classShapeMoniker Id="5b8db757-c139-44e3-8b4a-96850a50c58e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(9.25 : 3.40949625651042); (10.25 : 3.40949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/FitasiaDataDataContext/Gym/Gym_GymActivity" />
-      <nodes>
-        <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
-        <classShapeMoniker Id="5b8db757-c139-44e3-8b4a-96850a50c58e" />
-      </nodes>
-    </associationConnector>
     <classShape Id="98673c00-5ca5-44e7-ac46-aeccb760dea2" absoluteBounds="10.25, 4.375, 2, 1.3862939453125">
       <DataClassMoniker Name="/FitasiaDataDataContext/GymBenefit" />
       <nestedChildShapes>
         <elementListCompartment Id="eedefa16-273a-47c0-a4e7-3f77352b8155" absoluteBounds="10.265, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(13 : 5.06814697265625); (12.25 : 5.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(13 : 5.2925439453125); (12.25 : 5.2925439453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/FitasiaDataDataContext/Benefit/Benefit_GymBenefit" />
       <nodes>
         <classShapeMoniker Id="ab256356-6966-422d-a9ca-841d1a530541" />
         <classShapeMoniker Id="98673c00-5ca5-44e7-ac46-aeccb760dea2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.25 : 4.86140055338542); (10.25 : 4.86140055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(9.25 : 4.86140055338542); (10.25 : 4.86140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/FitasiaDataDataContext/Gym/Gym_GymBenefit" />
       <nodes>
         <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
         <classShapeMoniker Id="98673c00-5ca5-44e7-ac46-aeccb760dea2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4ffe7b15-5c7e-4d41-bacb-3261bfe79e16" absoluteBounds="10.25, 2.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/FitasiaDataDataContext/GymActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="878920b0-4516-4118-8aaf-45698848bb99" absoluteBounds="10.265, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13 : 3.22199625651042); (12.25 : 3.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Activity/Activity_GymActivity" />
+      <nodes>
+        <classShapeMoniker Id="1e943544-d81a-4f60-98f8-1319691d1f80" />
+        <classShapeMoniker Id="4ffe7b15-5c7e-4d41-bacb-3261bfe79e16" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.25 : 3.50564697265625); (10.25 : 3.50564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FitasiaDataDataContext/Gym/Gym_GymActivity" />
+      <nodes>
+        <classShapeMoniker Id="5576e2a5-cc57-4a52-9b57-af5c84ff8569" />
+        <classShapeMoniker Id="4ffe7b15-5c7e-4d41-bacb-3261bfe79e16" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -89,17 +89,9 @@
       <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Association Name="Gym_GymActivity" Member="GymActivities" ThisKey="Id" OtherKey="GymID" Type="GymActivity" />
       <Association Name="Gym_GymBenefit" Member="GymBenefits" ThisKey="Id" OtherKey="GymID" Type="GymBenefit" />
+      <Association Name="Gym_GymActivity" Member="GymActivities" ThisKey="Id" OtherKey="GymID" Type="GymActivity" />
       <Association Name="Address_Gym" Member="Address" ThisKey="AddressID" OtherKey="Id" Type="Address" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GymActivity" Member="GymActivities">
-    <Type Name="GymActivity">
-      <Column Name="GymID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivityID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Activity_GymActivity" Member="Activity" ThisKey="ActivityID" OtherKey="Id" Type="Activity" IsForeignKey="true" />
-      <Association Name="Gym_GymActivity" Member="Gym" ThisKey="GymID" OtherKey="Id" Type="Gym" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.GymBenefits" Member="GymBenefits">
@@ -109,6 +101,15 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Benefit_GymBenefit" Member="Benefit" ThisKey="BenefitID" OtherKey="Id" Type="Benefit" IsForeignKey="true" />
       <Association Name="Gym_GymBenefit" Member="Gym" ThisKey="GymID" OtherKey="Id" Type="Gym" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GymActivity" Member="GymActivities">
+    <Type Name="GymActivity">
+      <Column Name="GymID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Activity_GymActivity" Member="Activity" ThisKey="ActivityID" OtherKey="Id" Type="Activity" IsForeignKey="true" />
+      <Association Name="Gym_GymActivity" Member="Gym" ThisKey="GymID" OtherKey="Id" Type="Gym" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

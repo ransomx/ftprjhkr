@@ -58,13 +58,7 @@ namespace Fitasia
 
             List<string> tags = ((List<string>)ViewState["Activities"]);
             List<Gym> gyms = searchByCriterion(tags);
-
-            /* WIP - Will be used for benefits
-            foreach(Gym gym in gyms)
-            {
-                GymActivity ga;
-            }
-            */
+            
 
             GControl control = new GControl(GControl.preBuilt.LargeMapControl);
             GControl control2 = new GControl(GControl.preBuilt.MenuMapTypeControl, new GControlPosition(GControlPosition.position.Top_Right));

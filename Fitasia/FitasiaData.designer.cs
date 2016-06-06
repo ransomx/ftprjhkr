@@ -60,6 +60,9 @@ namespace Fitasia
     partial void InsertGymBenefit(GymBenefit instance);
     partial void UpdateGymBenefit(GymBenefit instance);
     partial void DeleteGymBenefit(GymBenefit instance);
+    partial void InsertGymActivity(GymActivity instance);
+    partial void UpdateGymActivity(GymActivity instance);
+    partial void DeleteGymActivity(GymActivity instance);
     #endregion
 		
 		public FitasiaDataDataContext() : 
@@ -164,19 +167,19 @@ namespace Fitasia
 			}
 		}
 		
-		public System.Data.Linq.Table<GymActivity> GymActivities
-		{
-			get
-			{
-				return this.GetTable<GymActivity>();
-			}
-		}
-		
 		public System.Data.Linq.Table<GymBenefit> GymBenefits
 		{
 			get
 			{
 				return this.GetTable<GymBenefit>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GymActivity> GymActivities
+		{
+			get
+			{
+				return this.GetTable<GymActivity>();
 			}
 		}
 	}
@@ -1492,6 +1495,8 @@ namespace Fitasia
 		
 		private string _Name;
 		
+		private EntitySet<GymActivity> _GymActivities;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1504,6 +1509,7 @@ namespace Fitasia
 		
 		public Activity()
 		{
+			this._GymActivities = new EntitySet<GymActivity>(new Action<GymActivity>(this.attach_GymActivities), new Action<GymActivity>(this.detach_GymActivities));
 			OnCreated();
 		}
 		
@@ -1547,6 +1553,19 @@ namespace Fitasia
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Activity_GymActivity", Storage="_GymActivities", ThisKey="Id", OtherKey="ActivityID")]
+		public EntitySet<GymActivity> GymActivities
+		{
+			get
+			{
+				return this._GymActivities;
+			}
+			set
+			{
+				this._GymActivities.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1565,6 +1584,18 @@ namespace Fitasia
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_GymActivities(GymActivity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Activity = this;
+		}
+		
+		private void detach_GymActivities(GymActivity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Activity = null;
 		}
 	}
 	
@@ -1730,6 +1761,8 @@ namespace Fitasia
 		
 		private EntitySet<GymBenefit> _GymBenefits;
 		
+		private EntitySet<GymActivity> _GymActivities;
+		
 		private EntityRef<Address> _Address;
 		
     #region Extensibility Method Definitions
@@ -1757,6 +1790,7 @@ namespace Fitasia
 		public Gym()
 		{
 			this._GymBenefits = new EntitySet<GymBenefit>(new Action<GymBenefit>(this.attach_GymBenefits), new Action<GymBenefit>(this.detach_GymBenefits));
+			this._GymActivities = new EntitySet<GymActivity>(new Action<GymActivity>(this.attach_GymActivities), new Action<GymActivity>(this.detach_GymActivities));
 			this._Address = default(EntityRef<Address>);
 			OnCreated();
 		}
@@ -1938,6 +1972,19 @@ namespace Fitasia
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gym_GymActivity", Storage="_GymActivities", ThisKey="Id", OtherKey="GymID")]
+		public EntitySet<GymActivity> GymActivities
+		{
+			get
+			{
+				return this._GymActivities;
+			}
+			set
+			{
+				this._GymActivities.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Address_Gym", Storage="_Address", ThisKey="AddressID", OtherKey="Id", IsForeignKey=true)]
 		public Address Address
 		{
@@ -2003,50 +2050,17 @@ namespace Fitasia
 			this.SendPropertyChanging();
 			entity.Gym = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GymActivity")]
-	public partial class GymActivity
-	{
 		
-		private System.Nullable<int> _GymID;
-		
-		private System.Nullable<int> _ActivityID;
-		
-		public GymActivity()
+		private void attach_GymActivities(GymActivity entity)
 		{
+			this.SendPropertyChanging();
+			entity.Gym = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GymID", DbType="Int")]
-		public System.Nullable<int> GymID
+		private void detach_GymActivities(GymActivity entity)
 		{
-			get
-			{
-				return this._GymID;
-			}
-			set
-			{
-				if ((this._GymID != value))
-				{
-					this._GymID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivityID", DbType="Int")]
-		public System.Nullable<int> ActivityID
-		{
-			get
-			{
-				return this._ActivityID;
-			}
-			set
-			{
-				if ((this._ActivityID != value))
-				{
-					this._ActivityID = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Gym = null;
 		}
 	}
 	
@@ -2215,6 +2229,198 @@ namespace Fitasia
 					else
 					{
 						this._GymID = default(int);
+					}
+					this.SendPropertyChanged("Gym");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GymActivity")]
+	public partial class GymActivity : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<int> _GymID;
+		
+		private System.Nullable<int> _ActivityID;
+		
+		private int _Id;
+		
+		private EntityRef<Activity> _Activity;
+		
+		private EntityRef<Gym> _Gym;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGymIDChanging(System.Nullable<int> value);
+    partial void OnGymIDChanged();
+    partial void OnActivityIDChanging(System.Nullable<int> value);
+    partial void OnActivityIDChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    #endregion
+		
+		public GymActivity()
+		{
+			this._Activity = default(EntityRef<Activity>);
+			this._Gym = default(EntityRef<Gym>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GymID", DbType="Int")]
+		public System.Nullable<int> GymID
+		{
+			get
+			{
+				return this._GymID;
+			}
+			set
+			{
+				if ((this._GymID != value))
+				{
+					if (this._Gym.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGymIDChanging(value);
+					this.SendPropertyChanging();
+					this._GymID = value;
+					this.SendPropertyChanged("GymID");
+					this.OnGymIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivityID", DbType="Int")]
+		public System.Nullable<int> ActivityID
+		{
+			get
+			{
+				return this._ActivityID;
+			}
+			set
+			{
+				if ((this._ActivityID != value))
+				{
+					if (this._Activity.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnActivityIDChanging(value);
+					this.SendPropertyChanging();
+					this._ActivityID = value;
+					this.SendPropertyChanged("ActivityID");
+					this.OnActivityIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Activity_GymActivity", Storage="_Activity", ThisKey="ActivityID", OtherKey="Id", IsForeignKey=true)]
+		public Activity Activity
+		{
+			get
+			{
+				return this._Activity.Entity;
+			}
+			set
+			{
+				Activity previousValue = this._Activity.Entity;
+				if (((previousValue != value) 
+							|| (this._Activity.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Activity.Entity = null;
+						previousValue.GymActivities.Remove(this);
+					}
+					this._Activity.Entity = value;
+					if ((value != null))
+					{
+						value.GymActivities.Add(this);
+						this._ActivityID = value.Id;
+					}
+					else
+					{
+						this._ActivityID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Activity");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gym_GymActivity", Storage="_Gym", ThisKey="GymID", OtherKey="Id", IsForeignKey=true)]
+		public Gym Gym
+		{
+			get
+			{
+				return this._Gym.Entity;
+			}
+			set
+			{
+				Gym previousValue = this._Gym.Entity;
+				if (((previousValue != value) 
+							|| (this._Gym.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Gym.Entity = null;
+						previousValue.GymActivities.Remove(this);
+					}
+					this._Gym.Entity = value;
+					if ((value != null))
+					{
+						value.GymActivities.Add(this);
+						this._GymID = value.Id;
+					}
+					else
+					{
+						this._GymID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Gym");
 				}

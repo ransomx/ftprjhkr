@@ -165,6 +165,7 @@
     <Content Include="resources\images\profiles\nikol.jpg" />
     <Content Include="resources\images\profiles\sophie.jpg" />
     <Content Include="resources\images\profiles\tom.jpg" />
+    <Content Include="resources\images\wifi-logo.png" />
     <Content Include="resources\styles\contact.css" />
     <Content Include="resources\styles\buttons.css" />
     <Content Include="resources\styles\payment.css" />
