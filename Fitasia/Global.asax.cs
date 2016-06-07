@@ -21,6 +21,7 @@ namespace Fitasia
         void Session_Start(object sender, EventArgs e)
         {
             Session["Culture"] = "en-US";
+            Session["ItemDetails"] = 9999;
         }
 
         void Application_BeginRequest(Object sender, EventArgs e)

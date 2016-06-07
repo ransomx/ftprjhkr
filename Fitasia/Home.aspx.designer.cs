@@ -355,6 +355,33 @@ namespace Fitasia {
         protected global::System.Web.UI.WebControls.Repeater GymRepeater;
         
         /// <summary>
+        /// detailsViewUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel detailsViewUpdate;
+        
+        /// <summary>
+        /// ItemDetailsSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinqDataSource ItemDetailsSource;
+        
+        /// <summary>
+        /// detailsView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView detailsView;
+        
+        /// <summary>
         /// GMap1 control.
         /// </summary>
         /// <remarks>

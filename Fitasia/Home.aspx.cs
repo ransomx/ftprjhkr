@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Fitasia
@@ -18,7 +19,6 @@ namespace Fitasia
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Header.DataBind();
-
             if (!IsPostBack)
             {
                 ViewState["Activities"] = new List<string>();
@@ -58,7 +58,7 @@ namespace Fitasia
 
             List<string> tags = ((List<string>)ViewState["Activities"]);
             List<Gym> gyms = searchByCriterion(tags);
-            
+
 
             GControl control = new GControl(GControl.preBuilt.LargeMapControl);
             GControl control2 = new GControl(GControl.preBuilt.MenuMapTypeControl, new GControlPosition(GControlPosition.position.Top_Right));
@@ -275,6 +275,13 @@ namespace Fitasia
         {
             TxtInputC.Text = "";
             TxtTopicC.Text = "";
+        }
+
+        protected void btnShowDetails_Click(object sender, EventArgs e)
+        {
+            Session["ItemDetails"] = ((Button)sender).CommandArgument;
+            detailsView.DataBind();
+            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "reinitializeWindows", "reinitializeWindows();", true);
         }
     }
 

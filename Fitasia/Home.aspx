@@ -8,11 +8,15 @@
 
     <script type="text/javascript">
         var searchOpen = false;
+        var searchDetailsOpen = false;
+
         function hideSearch() {
             $("#searchContent").toggle(300);
             if (searchOpen) {
                 searchOpen = false;
                 $("#toggleButton").text("OFFERS");
+                if (searchDetailsOpen)
+                    hideItemDetails();
             } else {
                 searchOpen = true;
                 $("#toggleButton").text("HIDE");
@@ -22,6 +26,8 @@
         function updateSearchView() {
             if (searchOpen) {
                 hideSearch();
+                if (searchDetailsOpen)
+                    hideItemDetails();
             }
         }
 
@@ -30,7 +36,24 @@
             setTimeout(function () {
                 $("#<%=LblMessageC.ClientID%>").fadeOut(500);
             }, seconds * 1000);
-        };
+            };
+
+            function showItemDetails(id) {
+                if (!searchDetailsOpen) {
+                    $("#itemDetails").toggle(300);
+                    searchDetailsOpen = true;
+                }
+            }
+
+            function hideItemDetails() {
+                $("#itemDetails").toggle(300);
+                searchDetailsOpen = false;
+            }
+
+            function reinitializeWindows() {
+                $("#searchContent").toggle(0);
+                $("#itemDetails").toggle(0);
+            }
     </script>
 </asp:Content>
 
@@ -72,16 +95,12 @@
                                         <asp:TextBox ID="TxtSurname" CssClass="input" placeholder="SURNAME" meta:resourceKey="TxtSurname" runat="server" />
                                         <asp:RequiredFieldValidator ID="ReqValSur" meta:resourceKey="ReqValSur" runat="server" ValidationGroup="reg" ControlToValidate="TxtSurname" Display="None"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegExpSur" meta:resourceKey="RegExpSur" runat="server" ValidationGroup="reg" ValidationExpression="\D+" Display="None" ControlToValidate="TxtSurname"></asp:RegularExpressionValidator>
-                                    </asp:TableCell>
-                                </asp:TableRow>
-                                <asp:TableRow>
+                                    </asp:TableCell></asp:TableRow><asp:TableRow>
                                     <asp:TableCell ColumnSpan="5" CssClass="inputStretch">
                                         <asp:TextBox ID="TxtEmail" CssClass="inputStretch" meta:resourceKey="TxtEmail" ValidationGroup="reg" runat="server" />
                                         <asp:RequiredFieldValidator ID="RegValEmail" meta:resourceKey="RegValEmail" runat="server" ValidationGroup="reg" ControlToValidate="TxtEmail" Display="None"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="RegExpEmail" meta:resourceKey="RegExpEmail" runat="server" ValidationGroup="reg" Display="None" ValidationExpression="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" ControlToValidate="TxtEmail"></asp:RegularExpressionValidator>
-                                    </asp:TableCell>
-                                </asp:TableRow>
-                                <asp:TableRow>
+                                    </asp:TableCell></asp:TableRow><asp:TableRow>
                                     <asp:TableCell>
                                         <asp:TextBox ID="TxtPwd" CssClass="input" TextMode="Password" meta:resourceKey="TxtPwd" ValidationGroup="reg" runat="server" />
                                         <asp:RequiredFieldValidator ID="ReqValPass" meta:resourceKey="ReqValPass" ValidationGroup="reg" runat="server" ControlToValidate="TxtPwd" Display="None"></asp:RequiredFieldValidator>
@@ -89,10 +108,7 @@
                                     </asp:TableCell><asp:TableCell>
                                         <asp:TextBox ID="TxtPwda" CssClass="input" TextMode="Password" meta:resourceKey="TxtPwda" runat="server" />
                                         <asp:CompareValidator ID="ComparePassword" meta:resourceKey="ComparePassword" ValidationGroup="reg" runat="server" ControlToCompare="TxtPwd" Display="None" ControlToValidate="TxtPwda"></asp:CompareValidator>
-                                    </asp:TableCell>
-                                </asp:TableRow>
-                            </asp:Table>
-                            <asp:Button ID="BtnSignUp" CssClass="button" meta:resourceKey="BtnSignUp" CausesValidation="true" runat="server" ValidationGroup="reg" ValidateRequestMode="Enabled" OnClick="BtnSignUp_Click" />
+                                    </asp:TableCell></asp:TableRow></asp:Table><asp:Button ID="BtnSignUp" CssClass="button" meta:resourceKey="BtnSignUp" CausesValidation="true" runat="server" ValidationGroup="reg" ValidateRequestMode="Enabled" OnClick="BtnSignUp_Click" />
                             <asp:Button ID="BtnLoginFb" CssClass="buttonFb" meta:resourceKey="BtnLoginFb" CausesValidation="false" runat="server" />
                             <asp:Button ID="BtnLoginGoogle" CssClass="buttonG" meta:resourceKey="BtnLoginGoogle" runat="server" CausesValidation="false" />
                             <asp:ValidationSummary ID="ValSumReg" CssClass="validator" ValidationGroup="reg" runat="server" />
@@ -104,22 +120,15 @@
 
         <video muted autoplay loop id="myvideo" class="fullscreen-bg__video">
             <source src="resources/video/gym.mp4" type="audio/mp4" />
-        </video>
-    </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+        </video></div></asp:Content><asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 
     <!-- GYM LOCATOR AND SEARCH ENGINE  -->
     <div class="content">
 
         <h1>
-            <asp:Label ID="LblLocator" meta:resourceKey="LblLocator" runat="server"></asp:Label></h1>
-        <p>
+            <asp:Label ID="LblLocator" meta:resourceKey="LblLocator" runat="server"></asp:Label></h1><p>
             <asp:Label ID="LblLocatorContent" runat="server" meta:resourceKey="LblLocatorContent">
-            </asp:Label>
-        </p>
-    </div>
-    <asp:UpdatePanel ID="UpdateMapRegion" runat="server">
+            </asp:Label></p></div><asp:UpdatePanel ID="UpdateMapRegion" runat="server">
         <ContentTemplate>
             <div class="mapcontrols center">
                 <asp:TextBox ID="TxtArea" meta:resourceKey="TxtArea" placeholder="Area" runat="server" CssClass="mapcontrol" OnTextChanged="TxtSearch_TextChanged" AutoPostBack="true" />
@@ -127,8 +136,7 @@
 
                 <!-- WIP -->
                 <asp:TextBox ID="TxtActivity" meta:resourceKey="TxtActivity" runat="server" ValidationGroup="mapcontrol" CssClass="mapcontrol" AutoPostBack="true" />
-                <asp:RequiredFieldValidator ID="ReqValActivity" runat="server" ControlToValidate="TxtActivity" ValidationGroup="mapcontrol" Display="None" ErrorMessage="You need to choose activity."></asp:RequiredFieldValidator>
-                <asp:ImageButton ID="BtnAdd" runat="server" CssClass="addIcon smooth-transform" ValidationGroup="mapcontrol" OnClick="BtnAdd_Click" ImageUrl="http://www.free-icons-download.net/images/plus-sign-icon-1945.png" />
+                <asp:RequiredFieldValidator ID="ReqValActivity" runat="server" ControlToValidate="TxtActivity" ValidationGroup="mapcontrol" Display="None" ErrorMessage="You need to choose activity."></asp:RequiredFieldValidator><asp:ImageButton ID="BtnAdd" runat="server" CssClass="addIcon smooth-transform" ValidationGroup="mapcontrol" OnClick="BtnAdd_Click" ImageUrl="http://www.free-icons-download.net/images/plus-sign-icon-1945.png" />
                 <asp:ValidationSummary ID="MapControlValidationSummary" CssClass="validator" ValidationGroup="mapcontrol" runat="server" />
             </div>
 
@@ -149,26 +157,22 @@
                 <div id="searchContent">
                     <asp:UpdateProgress ID="UpdateProgress1" runat="server">
                         <ProgressTemplate>
-                            <h3>Searching...</h3>
-                        </ProgressTemplate>
-                    </asp:UpdateProgress>
-                    <h2>Offers</h2>
-                    <asp:Repeater ID="GymRepeater" runat="server">
+                            <h3>Searching...</h3></ProgressTemplate></asp:UpdateProgress><h2>Offers</h2><asp:Repeater ID="GymRepeater" runat="server">
                         <ItemTemplate>
                             <div class="item smooth-transform">
                                 <h3><%# Eval("Name") %></h3>
-                                <div class="inside fast-transform">
+                                <div class="inside fast-transform" onclick="showItemDetails(<%#Eval("Id")%>)">
                                     <img src="resources/images/gym.jpg" id="itemImg" class="itemImage" />
                                     <h4><%#Eval("Address.City") %> </h4>
-                                    <h4>300 SEK </h4>
-                                    <h4>Save 50% </h4>
+                                    <h4>300 SEK </h4><h4>Save 50% </h4><asp:Button CssClass="button" ID="btnShowDetails" runat="server" Text="Show details" UseSubmitBehavior="false" CommandArgument='<%# Eval("Id") %>' OnClick="btnShowDetails_Click" />
                                 </div>
                                 <ul>
                                     <asp:Repeater ID="BenefitRepeater" runat="server" DataSource='<%# Eval("GymBenefits") %>'>
                                         <ItemTemplate>
-                                            <li class="benefit horizontal">
+                                            <li class="benefit horizontal" runat="server">
                                                 <img src='<%# DataBinder.Eval(Container.DataItem, "Benefit.Image")%>'
                                                     alt='<%# DataBinder.Eval(Container.DataItem, "Benefit.Name")%>' />
+
                                             </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -177,12 +181,31 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
+
+                <div id="itemDetails">
+                    <asp:UpdatePanel ID="detailsViewUpdate" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <h3>Offer details</h3><asp:LinqDataSource ID="ItemDetailsSource" runat="server" ContextTypeName="Fitasia.FitasiaDataDataContext" EntityTypeName="" TableName="Gyms" Where="Id == @Id">
+                                <WhereParameters>
+                                    <asp:SessionParameter Name="Id" SessionField="ItemDetails" Type="Int32" />
+                                </WhereParameters>
+                            </asp:LinqDataSource>
+                            <asp:ListView ID="detailsView" runat="server" DataKeyNames="Id" DataSourceID="ItemDetailsSource">
+                                <ItemTemplate>
+                                    Id: <asp:Label ID="IdLabel1" runat="server" Text='<%# Eval("Id") %>' /><br />
+                                    Name: <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' /><br />
+                                    LocLa: <asp:TextBox ID="LocLaTextBox" runat="server" Text='<%# Bind("LocLa") %>' /><br />
+                                    LocLo: <asp:TextBox ID="LocLoTextBox" runat="server" Text='<%# Bind("LocLo") %>' /><br />
+                                    Details: <asp:TextBox ID="DetailsTextBox" runat="server" Text='<%# Bind("Details") %>' /><br />
+                                    URL: <asp:TextBox ID="URLTextBox" runat="server" Text='<%# Bind("URL") %>' /><br />
+                                    Image: <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
                 <aside class="hideButton inline" onclick="hideSearch()">
-                    <div id="toggleButton" class="smooth-transform">OFFERS</div>
-                    <hr />
-                </aside>
-            </div>
-            <cc1:GMap ID="GMap1" CssClass="map" Width="100%" Height="300px" runat="server" />
+                    <div id="toggleButton" class="smooth-transform">OFFERS</div><hr /></aside></div><cc1:GMap ID="GMap1" CssClass="map" Width="100%" Height="300px" runat="server" />
 
         </ContentTemplate>
         <Triggers>
@@ -194,8 +217,7 @@
     <!-- VIDEO  -->
     <div class="content">
         <h1>
-            <asp:Label ID="LblVideo" meta:resourceKey="LblVideo" runat="server"></asp:Label></h1>
-        <div class="video">
+            <asp:Label ID="LblVideo" meta:resourceKey="LblVideo" runat="server"></asp:Label></h1><div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/sZ4NH5phUZs" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
@@ -206,8 +228,7 @@
     <!-- BEST OFFERS  -->
     <div id="offers" class="content">
         <h1>
-            <asp:Label ID="LblOffers" meta:resourceKey="LblOffers" runat="server"></asp:Label></h1>
-        <div class="offer">
+            <asp:Label ID="LblOffers" meta:resourceKey="LblOffers" runat="server"></asp:Label></h1><div class="offer">
             <asp:ListView ID="OfferView" runat="server">
                 <ItemTemplate>
                     <div class="column">
@@ -215,9 +236,7 @@
                         <h3><%# Eval("Duration") %></h3>
                         <div>
                             <span><%# Eval("Price") %>
-                                <asp:Label ID="LblCurrency" runat="server" Text="SEK"></asp:Label></span>
-                        </div>
-                        <h3><%# Eval("Description") %></h3>
+                                <asp:Label ID="LblCurrency" runat="server" Text="SEK"></asp:Label></span></div><h3><%# Eval("Description") %></h3>
                         <asp:Button ID="BtnPurchase" meta:resourceKey="BtnPurchase" OnCommand="BtnPurchase_Click" CommandArgument='<%# Eval("Id") %>' CssClass="button" runat="server" />
                     </div>
                     <asp:DataPager ID="DataPager1" runat="server" PageSize="3">
@@ -225,21 +244,12 @@
                 </ItemTemplate>
             </asp:ListView>
             <p>
-                <asp:Label ID="LblOffersFoot" meta:resourceKey="LblOffersFoot" runat="server"></asp:Label>
-            </p>
-
-        </div>
-    </div>
-</asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="ContentPlaceHolder6" runat="server">
+                <asp:Label ID="LblOffersFoot" meta:resourceKey="LblOffersFoot" runat="server"></asp:Label></p></div></div></asp:Content><asp:Content ID="Content6" ContentPlaceHolderID="ContentPlaceHolder6" runat="server">
     <!-- ABOUT US CONTENT  -->
     <div class="content">
         <h1>
-            <asp:Label ID="LblAbout" meta:resourceKey="LblAbout" runat="server"></asp:Label></h1>
-        <p>
-            <asp:Label ID="LblAboutContent" meta:resourceKey="LblAboutContent" runat="server"></asp:Label>
-        </p>
-        <asp:LinqDataSource ID="LinqDataSource2" runat="server" ContextTypeName="Fitasia.FitasiaDataDataContext" EntityTypeName="" Select="new (Name, Profession, Text, Image)" TableName="Persons"></asp:LinqDataSource>
+            <asp:Label ID="LblAbout" meta:resourceKey="LblAbout" runat="server"></asp:Label></h1><p>
+            <asp:Label ID="LblAboutContent" meta:resourceKey="LblAboutContent" runat="server"></asp:Label></p><asp:LinqDataSource ID="LinqDataSource2" runat="server" ContextTypeName="Fitasia.FitasiaDataDataContext" EntityTypeName="" Select="new (Name, Profession, Text, Image)" TableName="Persons"></asp:LinqDataSource>
         <asp:Repeater ID="Repeater2" runat="server" DataSourceID="LinqDataSource2">
             <ItemTemplate>
                 <div class="column">
@@ -254,57 +264,33 @@
 
     <div class="content bottom">
         <h2>
-            <asp:Label ID="LblConnectC" meta:resourceKey="LblConnectC" runat="server" Text="Label"></asp:Label></h2>
-        <p>
-            <asp:Label ID="LblHeaderContentC" meta:resourceKey="LblHeaderContentC" runat="server" Text="Label"></asp:Label>
-        </p>
-
-        <section class="contact">
+            <asp:Label ID="LblConnectC" meta:resourceKey="LblConnectC" runat="server" Text="Label"></asp:Label></h2><p>
+            <asp:Label ID="LblHeaderContentC" meta:resourceKey="LblHeaderContentC" runat="server" Text="Label"></asp:Label></p><section class="contact">
             <h4>
-                <asp:Label ID="LblSendMessageC" meta:resourceKey="LblSendMessageC" runat="server" Text="Label"></asp:Label></h4>
-            <asp:Table ID="Table1" runat="server" Width="400">
+                <asp:Label ID="LblSendMessageC" meta:resourceKey="LblSendMessageC" runat="server" Text="Label"></asp:Label></h4><asp:Table ID="Table1" runat="server" Width="400">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="1">
                         <asp:TextBox ID="TxtNameC" CssClass="input" meta:resourceKey="TxtNameC" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator meta:resourceKey="ReqValNameC" ID="ReqValNameC" ValidationGroup="contact" ControlToValidate="TxtNameC" Display="None" runat="server"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                    <asp:TableCell ColumnSpan="1">
+                    </asp:TableCell><asp:TableCell ColumnSpan="1">
                         <asp:TextBox ID="TxtEmailC" meta:resourceKey="TxtEmailC" CssClass="input" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator meta:resourceKey="ReqValEmailC" ID="ReqValEmailC" ValidationGroup="contact" ControlToValidate="TxtEmailC" Display="None" runat="server"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell ColumnSpan="2">
                         <asp:TextBox ID="TxtTopicC" meta:resourceKey="TxtTopicC" CssClass="inputStretch" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell ColumnSpan="2">
                         <asp:TextBox ID="TxtInputC" meta:resourceKey="TxtInputC" Rows="8" TextMode="MultiLine" Wrap="true" CssClass="inputField" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator meta:resourceKey="ReqValTextC" ID="ReqValTextC" runat="server" ValidationGroup="contact" Display="None" ControlToValidate="TxtInputC"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:Button ID="BtnSendC" meta:resourceKey="BtnSendC" runat="server" ValidationGroup="contact" CssClass="button" Text="" OnClick="BtnSend_Click" />
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-            <asp:ValidationSummary ID="ValidationSummaryC" CssClass="validator" ValidationGroup="contact" runat="server" />
+                    </asp:TableCell></asp:TableRow></asp:Table><asp:ValidationSummary ID="ValidationSummaryC" CssClass="validator" ValidationGroup="contact" runat="server" />
         </section>
         <section class="sideSocials">
             <h4>
-                <asp:Label ID="LblSocC" meta:resourceKey="LblSoc1C" runat="server"></asp:Label></h4>
-            <p>
-                <asp:Label ID="LblFbC" meta:resourceKey="LblFbC" runat="server"></asp:Label>
-            </p>
-            <p>
-                <asp:Label ID="LblTwitterC" meta:resourceKey="LblTwitterC" runat="server"></asp:Label></p>
-            <p>
-                <asp:Label ID="LblGoogleC" meta:resourceKey="LblGoogleC" runat="server"></asp:Label></p>
-        </section>
-        <asp:Label ID="LblMessageC" meta:resourceKey="LblMessageC" CssClass="timeoutMessage" runat="server" Visible="false"></asp:Label>
-    </div>
-</asp:Content>
+                <asp:Label ID="LblSocC" meta:resourceKey="LblSoc1C" runat="server"></asp:Label></h4><p>
+                <asp:Label ID="LblFbC" meta:resourceKey="LblFbC" runat="server"></asp:Label></p><p>
+                <asp:Label ID="LblTwitterC" meta:resourceKey="LblTwitterC" runat="server"></asp:Label></p><p>
+                <asp:Label ID="LblGoogleC" meta:resourceKey="LblGoogleC" runat="server"></asp:Label></p></section><asp:Label ID="LblMessageC" meta:resourceKey="LblMessageC" CssClass="timeoutMessage" runat="server" Visible="false"></asp:Label></div></asp:Content>

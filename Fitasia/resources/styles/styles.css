@@ -565,3 +565,8 @@ aside div:hover {
     .addIcon:hover {
         transform: scale(1.05);
     }
+
+#itemDetails{
+    display: none;
+    height: 300px;
+}
